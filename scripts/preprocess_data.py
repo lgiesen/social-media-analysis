@@ -23,6 +23,16 @@ def clean_data(df, logs=False):
         print("Null Values Before Cleaning:")
         print(df.isnull().sum())
 
+    
+    
+    
+    
+    # TODO: do not drop null values - first check if null
+
+
+
+
+
     # Fill or drop missing values based on your preference
     # Example: Fill missing values in 'text' column with an empty string
     df['text'] = df['text'].fillna('')
