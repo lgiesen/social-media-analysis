@@ -38,7 +38,7 @@ def clean_data(df, logs=False):
     df['text'] = df['text'].fillna('')
 
     # Drop rows where critical columns (e.g., 'text_id', 'user_id') have null values
-    df = df.dropna(subset=['text_id', 'user_id'])
+    # df = df.dropna(subset=['text_id', 'user_id'])
 
     # 2. Parse `timestamp` into Readable Datetime Format
     # Assuming timestamp is in milliseconds, convert it to datetime
