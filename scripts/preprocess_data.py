@@ -1,9 +1,10 @@
 import re
-
 import pandas as pd
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
 
-def load_data(path_data='./data/dataset.json'):
+def load_data(path_data='./data/dataset.json', , logs=False):
     import json
 
     from pandas import json_normalize
@@ -14,10 +15,7 @@ def load_data(path_data='./data/dataset.json'):
         # normalize data (return data frame)
         df = json_normalize(data)
     
-    return df
-
-def clean_data(df, logs=False):
-    # 1. Parse `timestamp` into Readable Datetime Format
+    # Parse `timestamp` into Readable Datetime Format
     # Assuming timestamp is in milliseconds, convert it to datetime
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
     df = df.reset_index(drop=True)
@@ -32,12 +30,6 @@ def clean_data(df, logs=False):
         print(df.head())
 
     return df
-
-import re
-
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-
 
 def normalize_text(text):
     # Convert text to lowercase
