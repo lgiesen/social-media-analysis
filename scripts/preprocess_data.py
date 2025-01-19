@@ -1,9 +1,13 @@
 import re
 
+import nltk
 import pandas as pd
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
+# Install necessary NLTK data
+nltk.download('stopwords')
+nltk.download('wordnet')
 
 def load_data(path_data='./data/dataset.json', logs=False):
     import json
@@ -46,7 +50,7 @@ def normalize_text(text):
     text = text.strip()
 
     # Remove punctuation (from preprocess_lemmatizer)
-    text = re.sub(r'[\^\w\s]', '', text)
+    # text = re.sub(r'[^\w\s]', '', text)
 
     # Remove numbers (from preprocess_lemmatizer)
     text = re.sub(r'\d+', '', text)
