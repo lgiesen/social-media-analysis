@@ -1,10 +1,11 @@
 import re
+
 import pandas as pd
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 
-def load_data(path_data='./data/dataset.json', , logs=False):
+def load_data(path_data='./data/dataset.json', logs=False):
     import json
 
     from pandas import json_normalize
